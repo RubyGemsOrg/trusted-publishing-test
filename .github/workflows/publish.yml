@@ -1,0 +1,29 @@
+name: Publish Gem with Trusted Publishing
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish to RubyGems
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Build gem
+        run: gem build trusted_publishing_test.gemspec
+
+      - name: Publish to RubyGems via Trusted Publishing
+        uses: rubygems/release-gem@v1
