@@ -26,4 +26,4 @@ jobs:
         run: gem build trusted_publishing_test.gemspec
 
       - name: Publish to RubyGems via Trusted Publishing
-        uses: landongrindheim/release-gem@3b2967c71245ebc771b32080b754be378e64243b
+        uses: landongrindheim/release-gem@3988e0e80f303499c7750a24d8a0c00fdee8b3fc
